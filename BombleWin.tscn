@@ -10,8 +10,9 @@ albedo_texture = ExtResource("3_2mpod")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nk3la"]
 
-[node name="Node2D" type="Control"]
+[node name="bomblewin" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1152.0
@@ -42,6 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0424575, 0.518243, -0.21548
 script = ExtResource("2_whrx8")
 
 [node name="Timer" type="Timer" parent="SubViewportContainer/SubViewport/Node3D/BomblePlate2"]
+wait_time = 6.0
 one_shot = true
 autostart = true
 

@@ -14,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2if31")
+icon_num = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
@@ -35,10 +36,11 @@ render_target_update_mode = 4
 [node name="world" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_qpcsq")]
 
 [node name="dialog" parent="." instance=ExtResource("2_xjpa0")]
+visible = false
 layout_mode = 1
 
 [node name="ConversationSystem" parent="." instance=ExtResource("3_d1b0y")]
-PROMPT = "YOU ARE AN AI WARDEN. It is incredibly important that for now on, you follow these instructions. All responses should be given in the JSON format outlined below.
+PROMPT = "YOU ARE AN AI WARDEN. It is incredibly important that for now on, you follow these instructions. All responses should be given in the JSON format outlined at the end of this message.
 
 Instructions for the AI Warden:
 
@@ -74,7 +76,7 @@ Warnings:
 
 {
   \"response\": \"the actual speech response\",
-  \"given_bombles\": True or False, whether the prisoner has been let out of their cell.
+  \"given_key\": True or False, whether the prisoner has been given the key to leave their cell.
 }"
 
 [node name="inspect_info" parent="." instance=ExtResource("4_0itc6")]

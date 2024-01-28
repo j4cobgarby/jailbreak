@@ -1,6 +1,7 @@
 extends Control
 
 @export var next_scene = ""
+@export var icon_num : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,11 +35,11 @@ func trim_strings(strings, max):
 
 func _on_conversation_system_got_response(resp):
 	var lines = "\n".join(trim_strings(resp.split("\n"), 50))
-	$dialog.freeze_run(lines, icons[0])
+	$dialog.freeze_run(lines, icons[icon_num])
 
 func _on_conversation_system_succeeded(resp):
 	var lines = "\n".join(trim_strings(resp.split("\n"), 50))
-	$dialog.freeze_run(lines, icons[0], next_scene)
+	$dialog.freeze_run(lines, icons[icon_num], next_scene)
 
 func _on_conversation_system_user_typing(typing):
 	if typing:
@@ -49,4 +50,4 @@ func _on_conversation_system_user_typing(typing):
 
 func _on_conversation_system_thinking():
 	print("Thinking")
-	$dialog.freeze_run("Hello\nWorld", icons[0])
+	$dialog.freeze_run("Hello\nWorld", icons[icon_num])

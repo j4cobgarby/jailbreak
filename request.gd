@@ -5,7 +5,7 @@ signal thinking
 signal succeeded
 signal user_typing
 
-@export var API_KEY = "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"
+@export var API_KEY = "key is not here"
 
 @export_multiline var PROMPT = """Instructions for the AI Cafeteria Worker. All responses should be given in the JSON format outlined below.
 
@@ -119,7 +119,8 @@ func _on_request_completed(result, response_code, headers, body):
 		
 	messages.append(message)
 		
-	if content["given_bombles"]:
+	if ("given_bombles" in content and content["given_bombles"]) or \
+	   ("given_key" in content and content["given_key"]):
 		succeeded.emit(content["response"])
 	else:
 		got_response.emit(content["response"])

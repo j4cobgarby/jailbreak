@@ -142,6 +142,7 @@ billboard = 2
 texture_filter = 0
 texture = ExtResource("10_k8g7t")
 
+[connection signal="player_can_interact" from="SubViewportContainer/SubViewport/world" to="inspect_info" method="_on_world_player_can_interact"]
 [connection signal="got_response" from="ConversationSystem" to="." method="_on_conversation_system_got_response"]
 [connection signal="succeeded" from="ConversationSystem" to="." method="_on_conversation_system_succeeded"]
 [connection signal="thinking" from="ConversationSystem" to="." method="_on_conversation_system_thinking"]
