@@ -4,6 +4,8 @@ var rot_speed: float = 0.0
 var bounce: float = 0.0
 var time: float = 0.0
 
+@export var next_scene : String
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var tween = get_tree().create_tween()
@@ -24,4 +26,4 @@ func _process(delta):
 	scale.y = 1 + bounce * sin(time * 5)
 
 func _on_timer_timeout():
-	get_tree().change_scene_to_file("res://prisonlevel.tscn")
+	get_tree().change_scene_to_file(next_scene)

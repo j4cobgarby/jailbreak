@@ -65,7 +65,6 @@ mesh = SubResource("BoxMesh_fwg7d")
 
 [node name="ceiling" type="MeshInstance3D" parent="blocks"]
 transform = Transform3D(15, 0, 0, 0, -0.1, 1.74846e-06, 0, -8.74228e-09, -20, 0, 2.91584, 0)
-visible = false
 mesh = SubResource("BoxMesh_fwg7d")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="blocks"]

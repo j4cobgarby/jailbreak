@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbmge8gnuv8a4"]
+
+[ext_resource type="Script" path="res://credits.gd" id="1_6iwx6"]
+[ext_resource type="AudioStream" uid="uid://ctl3mjviso2gx" path="res://music/credits.ogg" id="2_g0ce2"]
+[ext_resource type="PackedScene" path="res://fade_in.tscn" id="3_a62a8"]
+
+[sub_resource type="FontVariation" id="FontVariation_jj3jg"]
+
+[node name="EndingCredits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0392157, 0.0352941, 1)
+
+[node name="Credits" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_6iwx6")
+
+[node name="Label" type="Label" parent="Background/Credits"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_jj3jg")
+theme_override_font_sizes/font_size = 60
+text = "Made by:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Background/Credits"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Zac Garby"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Background/Credits"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Jacob Garby"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Background/Credits"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Sol Steele"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Background/Credits"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "George Townsend"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_g0ce2")
+autoplay = true
+
+[node name="FadeIn" parent="." instance=ExtResource("3_a62a8")]
+layout_mode = 1

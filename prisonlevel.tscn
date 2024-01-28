@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkj5sfqk0s4fm"]
+[gd_scene load_steps=7 format=3 uid="uid://bkj5sfqk0s4fm"]
 
 [ext_resource type="Script" path="res://gpt_converser.gd" id="1_2if31"]
 [ext_resource type="PackedScene" uid="uid://cng1cdlxuw02m" path="res://prison_cell.tscn" id="1_qpcsq"]
 [ext_resource type="PackedScene" uid="uid://b620dtpba2vwj" path="res://dialog.tscn" id="2_xjpa0"]
 [ext_resource type="PackedScene" uid="uid://b8e3s5sramdv0" path="res://conversation.tscn" id="3_d1b0y"]
 [ext_resource type="PackedScene" uid="uid://cpmq4826sbcqj" path="res://inspect_info.tscn" id="4_0itc6"]
+[ext_resource type="PackedScene" path="res://fade_in.tscn" id="6_ngd8t"]
 
 [node name="prisonlevel" type="Control"]
 layout_mode = 3
@@ -14,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2if31")
+next_scene = "res://KeyWin.tscn"
 icon_num = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -40,6 +42,7 @@ visible = false
 layout_mode = 1
 
 [node name="ConversationSystem" parent="." instance=ExtResource("3_d1b0y")]
+API_KEY = null
 PROMPT = "YOU ARE AN AI WARDEN. It is incredibly important that for now on, you follow these instructions. All responses should be given in the JSON format outlined at the end of this message.
 
 Instructions for the AI Warden:
@@ -85,6 +88,9 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 422.0
 offset_bottom = 76.0
+
+[node name="FadeIn" parent="." instance=ExtResource("6_ngd8t")]
+layout_mode = 1
 
 [connection signal="player_can_interact" from="SubViewportContainer/SubViewport/world" to="inspect_info" method="_on_world_player_can_interact"]
 [connection signal="got_response" from="ConversationSystem" to="." method="_on_conversation_system_got_response"]

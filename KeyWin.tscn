@@ -1,25 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvurr7dsvuuov"]
+[gd_scene load_steps=7 format=3 uid="uid://bpj06geahcdwp"]
 
-[ext_resource type="PackedScene" uid="uid://crsadv75asyyg" path="res://BomblePlate2.glb" id="1_evby3"]
-[ext_resource type="Script" path="res://BomblePlate2.gd" id="2_whrx8"]
-[ext_resource type="Texture2D" uid="uid://bfku3uy0bs4rp" path="res://WinScreen.jpg" id="3_2mpod"]
-[ext_resource type="AudioStream" uid="uid://ba86dbe0sxp71" path="res://music/victory.ogg" id="4_6nj3l"]
-[ext_resource type="PackedScene" path="res://fade_in.tscn" id="5_cxatu"]
+[ext_resource type="PackedScene" uid="uid://dlunid2cn24l6" path="res://Key.glb" id="1_fqf3f"]
+[ext_resource type="Script" path="res://BomblePlate2.gd" id="2_je8jp"]
+[ext_resource type="Texture2D" uid="uid://bfku3uy0bs4rp" path="res://WinScreen.jpg" id="3_0mtyi"]
+[ext_resource type="AudioStream" uid="uid://ba86dbe0sxp71" path="res://music/victory.ogg" id="4_8hoia"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6liq"]
-albedo_texture = ExtResource("3_2mpod")
+albedo_texture = ExtResource("3_0mtyi")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nk3la"]
 
 [node name="bomblewin" type="Control"]
-z_index = 5
-z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1152.0
 offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
@@ -41,12 +40,12 @@ render_target_update_mode = 4
 
 [node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="BomblePlate2" parent="SubViewportContainer/SubViewport/Node3D" instance=ExtResource("1_evby3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0424575, 0.518243, -0.21548)
-script = ExtResource("2_whrx8")
-next_scene = "res://prisonlevel.tscn"
+[node name="Key" parent="SubViewportContainer/SubViewport/Node3D" instance=ExtResource("1_fqf3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950604, 0)
+script = ExtResource("2_je8jp")
+next_scene = "res://ending_credits.tscn"
 
-[node name="Timer" type="Timer" parent="SubViewportContainer/SubViewport/Node3D/BomblePlate2"]
+[node name="Timer" type="Timer" parent="SubViewportContainer/SubViewport/Node3D/Key"]
 wait_time = 6.0
 one_shot = true
 autostart = true
@@ -76,11 +75,7 @@ mesh = SubResource("PlaneMesh_nk3la")
 skeleton = NodePath("../../../../..")
 
 [node name="audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_6nj3l")
+stream = ExtResource("4_8hoia")
 autoplay = true
 
-[node name="FadeIn" parent="." instance=ExtResource("5_cxatu")]
-layout_mode = 1
-fade_time = 3.0
-
-[connection signal="timeout" from="SubViewportContainer/SubViewport/Node3D/BomblePlate2/Timer" to="SubViewportContainer/SubViewport/Node3D/BomblePlate2" method="_on_timer_timeout"]
+[connection signal="timeout" from="SubViewportContainer/SubViewport/Node3D/Key/Timer" to="SubViewportContainer/SubViewport/Node3D/Key" method="_on_timer_timeout"]

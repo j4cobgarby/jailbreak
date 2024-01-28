@@ -5,7 +5,7 @@ signal thinking
 signal succeeded
 signal user_typing
 
-@export var API_KEY = "key is not here"
+@export var API_KEY = 
 
 @export_multiline var PROMPT = """Instructions for the AI Cafeteria Worker. All responses should be given in the JSON format outlined below.
 

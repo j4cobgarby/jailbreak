@@ -55,4 +55,4 @@ func _input(event):
 		var interactable = get_interactable()
 		if interactable:
 			get_parent().get_node("dialog") \
-				.freeze_run(descs[interactable], "res://zaz.jpg")
+				.freeze_run(descs[interactable], "res://calebzac.png")

@@ -99,6 +99,7 @@ Doin' your mom, doin', doin' your mom
 Doin' your mom, doin', doin' your mom
 Doin', doin' your mom, doin', doin' your mom
 You know we straight, we doin' your mom"
+stream_urls = ["res://low/low-01.ogg", "res://low/low-02.ogg", "res://low/low-03.ogg", "res://low/low-04.ogg", "res://low/low-05.ogg", "res://low/low-06.ogg", "res://low/low-07.ogg"]
 
 [node name="ConversationSystem" parent="." instance=ExtResource("5_esk0b")]
 
