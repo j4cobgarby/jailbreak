@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjot8chxob68c"]
+
+[ext_resource type="Texture2D" uid="uid://tp170s7urh7" path="res://main-menu.png" id="1_mln0w"]
+[ext_resource type="Script" path="res://flash.gd" id="2_s0eua"]
+[ext_resource type="FontFile" uid="uid://04ovakb37cda" path="res://Retro Gaming.ttf" id="2_uvh5b"]
+[ext_resource type="PackedScene" uid="uid://chhyi7vmfydvx" path="res://intro.tscn" id="3_e58xm"]
+[ext_resource type="PackedScene" path="res://looper.tscn" id="4_h1wpd"]
+[ext_resource type="AudioStream" uid="uid://dlmmgafajitvj" path="res://music/main-menu.ogg" id="5_chowt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p14a0"]
+font = ExtResource("2_uvh5b")
+font_size = 28
+
+[node name="Control" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mln0w")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Press the any key to begin"
+label_settings = SubResource("LabelSettings_p14a0")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_s0eua")
+next_scene = ExtResource("3_e58xm")
+
+[node name="Timer" type="Timer" parent="Label"]
+wait_time = 0.4
+autostart = true
+
+[node name="AudioPlayer" parent="." instance=ExtResource("4_h1wpd")]
+loop_stream = ExtResource("5_chowt")
+
+[connection signal="timeout" from="Label/Timer" to="Label" method="_on_timer_timeout"]

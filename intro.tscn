@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://chhyi7vmfydvx"]
+
+[ext_resource type="Texture2D" uid="uid://bydbishbnalau" path="res://background_intro.png" id="1_gf5w5"]
+[ext_resource type="Script" path="res://intro.gd" id="1_ikp43"]
+[ext_resource type="PackedScene" uid="uid://dhv43rimarexm" path="res://paragraph.tscn" id="2_2xoc2"]
+[ext_resource type="PackedScene" uid="uid://hy61cnhwa5rn" path="res://canteenlevel.tscn" id="3_24t1r"]
+[ext_resource type="PackedScene" path="res://looper.tscn" id="5_dj7f8"]
+[ext_resource type="AudioStream" uid="uid://bw4wqxv1b6gnx" path="res://music/intro-start.ogg" id="5_nycxw"]
+[ext_resource type="AudioStream" uid="uid://dfs0y1ofe1um2" path="res://music/intro-loop.ogg" id="6_7i7hs"]
+
+[node name="Control" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_ikp43")
+paragraph_scene = ExtResource("2_2xoc2")
+game_scene = ExtResource("3_24t1r")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -12.0
+offset_right = 12.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+texture = ExtResource("1_gf5w5")
+
+[node name="Paragraphs" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+theme_override_constants/separation = 35
+
+[node name="ParagraphTimer" type="Timer" parent="."]
+wait_time = 8.629
+autostart = true
+
+[node name="AudioPlayer" parent="." instance=ExtResource("5_dj7f8")]
+intro_stream = ExtResource("5_nycxw")
+loop_stream = ExtResource("6_7i7hs")
+
+[node name="FadeOverlay" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="timeout" from="ParagraphTimer" to="." method="_paragraph_timer_tick"]

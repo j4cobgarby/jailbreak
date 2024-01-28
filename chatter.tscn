@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0f77n5hlt2rl"]
+
+[ext_resource type="Script" path="res://chatter.gd" id="1_0760m"]
+
+[node name="Chatter" type="AudioStreamPlayer"]
+autoplay = true
+script = ExtResource("1_0760m")
+
+[node name="PauseTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true

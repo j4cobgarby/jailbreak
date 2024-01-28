@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://b620dtpba2vwj"]
+
+[ext_resource type="Script" path="res://dialog.gd" id="1_4dila"]
+[ext_resource type="Texture2D" uid="uid://d1cxhvnj7g68b" path="res://zaz.jpg" id="1_khqfk"]
+[ext_resource type="FontFile" uid="uid://04ovakb37cda" path="res://Retro Gaming.ttf" id="3_l2f1a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w60ia"]
+font = ExtResource("3_l2f1a")
+font_size = 24
+font_color = Color(0.54902, 1, 0.517647, 1)
+
+[node name="dialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4dila")
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 494.0
+offset_right = 1153.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="image" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 494.0
+offset_right = 1232.0
+offset_bottom = 1726.0
+scale = Vector2(0.125, 0.125)
+mouse_filter = 2
+texture = ExtResource("1_khqfk")
+
+[node name="lbl" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 165.0
+offset_top = 506.0
+offset_right = 1137.0
+offset_bottom = 638.0
+label_settings = SubResource("LabelSettings_w60ia")

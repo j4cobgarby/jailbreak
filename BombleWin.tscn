@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvurr7dsvuuov"]
+
+[ext_resource type="PackedScene" uid="uid://crsadv75asyyg" path="res://BomblePlate2.glb" id="1_evby3"]
+[ext_resource type="Script" path="res://BomblePlate2.gd" id="2_whrx8"]
+[ext_resource type="Texture2D" uid="uid://bfku3uy0bs4rp" path="res://WinScreen.jpg" id="3_2mpod"]
+[ext_resource type="AudioStream" uid="uid://ba86dbe0sxp71" path="res://music/victory.ogg" id="4_6nj3l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6liq"]
+albedo_texture = ExtResource("3_2mpod")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nk3la"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 6
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(192, 108)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="BomblePlate2" parent="SubViewportContainer/SubViewport/Node3D" instance=ExtResource("1_evby3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0424575, 0.518243, -0.21548)
+script = ExtResource("2_whrx8")
+
+[node name="Timer" type="Timer" parent="SubViewportContainer/SubViewport/Node3D/BomblePlate2"]
+one_shot = true
+autostart = true
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.988683, 0.150019, 0, -0.150019, 0.988683, 0, 2.06347, 4.48574)
+fov = 52.7895
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.67577, 0.737112, 0, -0.737112, 0.67577, 0, 4.11452, 1.72215)
+spot_range = 6.23962
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.34563, -0.271824)
+light_color = Color(0.698039, 0.458824, 0.101961, 1)
+light_energy = 3.909
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.74846e-07, 0, -1.74846e-07, 1, 0, 1.83037, 3.61045)
+light_energy = 0.354
+spot_range = 5.83901
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(6.69894, 0, 0, 0, -4.37114e-08, -6.69894, 0, 1, -2.9282e-07, 0.00756928, 0.847733, -2.56468)
+material_override = SubResource("StandardMaterial3D_t6liq")
+mesh = SubResource("PlaneMesh_nk3la")
+skeleton = NodePath("../../../../..")
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6nj3l")
+autoplay = true
+
+[connection signal="timeout" from="SubViewportContainer/SubViewport/Node3D/BomblePlate2/Timer" to="SubViewportContainer/SubViewport/Node3D/BomblePlate2" method="_on_timer_timeout"]

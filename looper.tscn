@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgpdyxbl5psb3"]
+
+[ext_resource type="Script" path="res://looper.gd" id="1_dw0bv"]
+
+[node name="AudioPlayer" type="AudioStreamPlayer"]
+script = ExtResource("1_dw0bv")

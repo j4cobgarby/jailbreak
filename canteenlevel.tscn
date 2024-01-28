@@ -1,0 +1,140 @@
+[gd_scene load_steps=10 format=3 uid="uid://hy61cnhwa5rn"]
+
+[ext_resource type="Script" path="res://gpt_converser.gd" id="1_keyqr"]
+[ext_resource type="Script" path="res://mousepassthrough.gd" id="2_q3ae4"]
+[ext_resource type="PackedScene" uid="uid://c260nv6vhab5u" path="res://canteen.tscn" id="3_tgqmt"]
+[ext_resource type="PackedScene" uid="uid://b620dtpba2vwj" path="res://dialog.tscn" id="4_yo2jq"]
+[ext_resource type="PackedScene" uid="uid://b8e3s5sramdv0" path="res://conversation.tscn" id="5_esk0b"]
+[ext_resource type="PackedScene" uid="uid://cpmq4826sbcqj" path="res://inspect_info.tscn" id="6_a634g"]
+[ext_resource type="Texture2D" uid="uid://ck1cexuqd21v5" path="res://Dinner.png" id="8_fcrmj"]
+[ext_resource type="Texture2D" uid="uid://bvlaxyuyskxfw" path="res://man1.png" id="9_jcbkg"]
+[ext_resource type="Texture2D" uid="uid://iyfjvfbf1kh6" path="res://Man2.png" id="10_k8g7t"]
+
+[node name="CanteenLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_keyqr")
+next_scene = "res://BombleWin.tscn"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+stretch = true
+stretch_shrink = 5
+script = ExtResource("2_q3ae4")
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(230, 129)
+render_target_update_mode = 4
+
+[node name="world" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_tgqmt")]
+
+[node name="dialog" parent="." instance=ExtResource("4_yo2jq")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+text = "Doin' your mom, doin', doin' your mom
+Doin' your mom, doin', doin' your mom
+Doin', doin' your mom, doin', doin' your mom
+You know we straight, we doin' your mom
+I'm doin' your mom, yes, yours!
+First saw her in the Walmart pickin' out your drawers
+Big Dolly Parton hair like an '80s prom queen
+But her ass was lookin' good all up in them mom-jeans
+I approached her in the checkout line, and said, \"Yo baby, wassup?\"
+She had two gallons of milk, and I was starin' at her jugs
+Five minutes later, she agreed to get with me
+So we went and rocked the minivan like giggity, giggity, giggity
+I was ridin' your mom like she's Mario Kart
+I gave her a lift back to her crib 'cause her car wouldn't start
+She invited me in the house, and we started makin' out again
+How many times I tap that ass? (Over 9000!)
+Yeah, she called me Pledge cause I knocked the dust off it
+Later made me a sandwich and she cut the crust off it
+'Cause she knows how I like it, and that I'm a little young
+To be in the bed, butt-naked, doin' your mom
+Doin' your mom, doin', doin' your mom
+Doin' your mom, doin', doin' your mom
+Doin', doin' your mom, doin', doin' your mom
+You know we straight, we doin' your mom
+I like your mama's big butt, and I cannot lie
+You other brothers can't deny that she's fly
+We make sexy time, yes, and every night I tap that
+She saw me butt-naked, now she thinks I'm half black
+But your mom's the best, the super M-I-L-F
+'Cause she loves to toss the salad even though she ain't a chef
+And I blame it on the al-al-alcohol
+If I were you, I wouldn't kiss your mom on the mouth at all
+She likes the Donkey-Punch, she likes the Dirty Sanchez
+Sometimes she even likes to fool around in your bed
+She likes rough sex with handcuffs, and I'll be honest
+She likes me to Chris Brown her when she acts like Rihanna
+She's so therapeutic, when I need to cure my restlessness
+I say br-br-br-br-br-br-br-br, motorboat your mom's breastesess
+I didn't wanna tell you, but I had to write this song
+'Cause I'm in your house every night doin' your mo-om
+Doin' your mom, doin', doin' your mom
+Doin' your mom, doin', doin' your mom
+Doin', doin' your mom, doin', doin' your mom
+You know we straight, we doin' your mom
+Sex with your mother
+And that makes me (Better, better) better than you
+I'm having sex with your mother
+And that makes me (Better, better) better than yous
+Doin' your mom, doin', doin' your mom
+Doin' your mom, doin', doin' your mom
+Doin', doin' your mom, doin', doin' your mom
+You know we straight, we doin' your mom"
+
+[node name="ConversationSystem" parent="." instance=ExtResource("5_esk0b")]
+
+[node name="inspect_info" parent="." instance=ExtResource("6_a634g")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 422.0
+offset_bottom = 76.0
+
+[node name="lady" type="Sprite3D" parent="."]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.639835, 1.0984, -8.56486)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("8_fcrmj")
+
+[node name="inmate1" type="Sprite3D" parent="."]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -1.81747, 0.88724, -3.49124)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("9_jcbkg")
+
+[node name="inmate4" type="Sprite3D" parent="."]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 1.91413, 0.88724, 2.24285)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("9_jcbkg")
+
+[node name="inmate2" type="Sprite3D" parent="."]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -0.568101, 0.88724, -3.37452)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("10_k8g7t")
+
+[node name="inmate3" type="Sprite3D" parent="."]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -0.624165, 0.88724, 5.9972)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("10_k8g7t")
+
+[connection signal="player_can_interact" from="SubViewportContainer/SubViewport/world" to="inspect_info" method="_on_world_player_can_interact"]
+[connection signal="got_response" from="ConversationSystem" to="." method="_on_conversation_system_got_response"]
+[connection signal="succeeded" from="ConversationSystem" to="." method="_on_conversation_system_succeeded"]
+[connection signal="thinking" from="ConversationSystem" to="." method="_on_conversation_system_thinking"]
+[connection signal="user_typing" from="ConversationSystem" to="." method="_on_conversation_system_user_typing"]
