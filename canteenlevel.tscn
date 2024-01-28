@@ -1,14 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://hy61cnhwa5rn"]
+[gd_scene load_steps=12 format=3 uid="uid://hy61cnhwa5rn"]
 
 [ext_resource type="Script" path="res://gpt_converser.gd" id="1_keyqr"]
 [ext_resource type="Script" path="res://mousepassthrough.gd" id="2_q3ae4"]
 [ext_resource type="PackedScene" uid="uid://c260nv6vhab5u" path="res://canteen.tscn" id="3_tgqmt"]
 [ext_resource type="PackedScene" uid="uid://b620dtpba2vwj" path="res://dialog.tscn" id="4_yo2jq"]
 [ext_resource type="PackedScene" uid="uid://b8e3s5sramdv0" path="res://conversation.tscn" id="5_esk0b"]
-[ext_resource type="PackedScene" uid="uid://cpmq4826sbcqj" path="res://inspect_info.tscn" id="6_a634g"]
+[ext_resource type="FontFile" uid="uid://04ovakb37cda" path="res://Retro Gaming.ttf" id="6_fuauv"]
+[ext_resource type="Script" path="res://inspect_info.gd" id="7_3bvug"]
 [ext_resource type="Texture2D" uid="uid://ck1cexuqd21v5" path="res://Dinner.png" id="8_fcrmj"]
 [ext_resource type="Texture2D" uid="uid://bvlaxyuyskxfw" path="res://man1.png" id="9_jcbkg"]
 [ext_resource type="Texture2D" uid="uid://iyfjvfbf1kh6" path="res://Man2.png" id="10_k8g7t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ldma"]
+font = ExtResource("6_fuauv")
+font_size = 37
+font_color = Color(1, 1, 0, 1)
 
 [node name="CanteenLevel" type="Control"]
 layout_mode = 3
@@ -96,12 +102,15 @@ You know we straight, we doin' your mom"
 
 [node name="ConversationSystem" parent="." instance=ExtResource("5_esk0b")]
 
-[node name="inspect_info" parent="." instance=ExtResource("6_a634g")]
+[node name="inspect_info" type="Label" parent="."]
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 422.0
-offset_bottom = 76.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 430.0
+offset_bottom = 84.0
+text = "Press i to inspect"
+label_settings = SubResource("LabelSettings_7ldma")
+script = ExtResource("7_3bvug")
 
 [node name="lady" type="Sprite3D" parent="."]
 transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.639835, 1.0984, -8.56486)
@@ -133,7 +142,6 @@ billboard = 2
 texture_filter = 0
 texture = ExtResource("10_k8g7t")
 
-[connection signal="player_can_interact" from="SubViewportContainer/SubViewport/world" to="inspect_info" method="_on_world_player_can_interact"]
 [connection signal="got_response" from="ConversationSystem" to="." method="_on_conversation_system_got_response"]
 [connection signal="succeeded" from="ConversationSystem" to="." method="_on_conversation_system_succeeded"]
 [connection signal="thinking" from="ConversationSystem" to="." method="_on_conversation_system_thinking"]

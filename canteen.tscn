@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c260nv6vhab5u"]
+[gd_scene load_steps=21 format=3 uid="uid://c260nv6vhab5u"]
 
 [ext_resource type="Script" path="res://world_player_interaction.gd" id="1_2d7pl"]
 [ext_resource type="PackedScene" uid="uid://cvgte03vvnsg4" path="res://counter.glb" id="1_mabm1"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bsdewrhexpd52" path="res://player.tscn" id="3_so5uu"]
 [ext_resource type="PackedScene" uid="uid://cuxgkws0ngwp2" path="res://Door.glb" id="7_n3yfw"]
 [ext_resource type="PackedScene" uid="uid://snlinyrrtcax" path="res://Fire Exit.glb" id="8_vxtc0"]
+[ext_resource type="PackedScene" uid="uid://hv2xftp4wga4" path="res://robot/light2.glb" id="9_hsgy7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldt87"]
 albedo_color = Color(0.458824, 0.458824, 0.466667, 1)
@@ -64,6 +65,7 @@ mesh = SubResource("BoxMesh_fwg7d")
 
 [node name="ceiling" type="MeshInstance3D" parent="blocks"]
 transform = Transform3D(15, 0, 0, 0, -0.1, 1.74846e-06, 0, -8.74228e-09, -20, 0, 2.91584, 0)
+visible = false
 mesh = SubResource("BoxMesh_fwg7d")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="blocks"]
@@ -200,7 +202,55 @@ light_color = Color(0.886275, 0.960784, 0.964706, 1)
 light_energy = 1.684
 
 [node name="SpotLight3D" type="SpotLight3D" parent="lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.401465, 2.70694, 5.86538)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.231628, 2.70694, 4.87062)
+light_color = Color(0.831373, 1, 1, 1)
+light_energy = 3.0
+spot_range = 10.0
+spot_attenuation = 0.170755
+spot_angle = 61.48
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.23527, 2.70694, 4.87954)
+light_color = Color(0.831373, 1, 1, 1)
+light_energy = 3.0
+spot_range = 10.0
+spot_attenuation = 0.170755
+spot_angle = 61.48
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.24593, 2.70694, 4.87062)
+light_color = Color(0.831373, 1, 1, 1)
+light_energy = 3.0
+spot_range = 10.0
+spot_attenuation = 0.170755
+spot_angle = 61.48
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.38859, 2.70694, 1.27715)
+light_color = Color(0.831373, 1, 1, 1)
+light_energy = 3.0
+spot_range = 10.0
+spot_attenuation = 0.170755
+spot_angle = 61.48
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.33336, 2.70694, 1.27715)
+light_color = Color(0.831373, 1, 1, 1)
+light_energy = 3.0
+spot_range = 10.0
+spot_attenuation = 0.170755
+spot_angle = 61.48
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.46711, 2.70694, -2.29849)
+light_color = Color(0.831373, 1, 1, 1)
+light_energy = 3.0
+spot_range = 10.0
+spot_attenuation = 0.170755
+spot_angle = 61.48
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.34401, 2.70694, -2.38766)
 light_color = Color(0.831373, 1, 1, 1)
 light_energy = 3.0
 spot_range = 10.0
@@ -308,3 +358,30 @@ transform = Transform3D(-0.681818, 0, 5.96064e-08, 0, 0.681818, 0, -5.96064e-08,
 transform = Transform3D(6.66667, 0, 0, 0, 6.66667, 0, 0, 0, 6.66667, 0.116035, 1.90699, 0.311451)
 light_color = Color(0.0392157, 0.745098, 0, 1)
 light_energy = 0.48
+
+[node name="light2" parent="." instance=ExtResource("9_hsgy7")]
+transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, -4.35766, -0.5, 0.576275)
+
+[node name="light3" parent="." instance=ExtResource("9_hsgy7")]
+transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, -0.332644, -0.5, 0.555474)
+
+[node name="light4" parent="." instance=ExtResource("9_hsgy7")]
+transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 3.38035, -0.5, 0.524272)
+
+[node name="light5" parent="." instance=ExtResource("9_hsgy7")]
+transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, -4.38886, -0.5, 4.23727)
+
+[node name="light6" parent="." instance=ExtResource("9_hsgy7")]
+transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, -0.363845, -0.5, 4.21647)
+
+[node name="light7" parent="." instance=ExtResource("9_hsgy7")]
+transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 3.34915, -0.5, 4.18527)
+
+[node name="light8" parent="." instance=ExtResource("9_hsgy7")]
+transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, -4.32646, -0.5, 7.77346)
+
+[node name="light9" parent="." instance=ExtResource("9_hsgy7")]
+transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, -0.301443, -0.5, 7.75266)
+
+[node name="light10" parent="." instance=ExtResource("9_hsgy7")]
+transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 3.41156, -0.5, 7.72146)

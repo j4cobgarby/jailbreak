@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b620dtpba2vwj"]
+[gd_scene load_steps=6 format=3 uid="uid://b620dtpba2vwj"]
 
 [ext_resource type="Script" path="res://dialog.gd" id="1_4dila"]
 [ext_resource type="Texture2D" uid="uid://d1cxhvnj7g68b" path="res://zaz.jpg" id="1_khqfk"]
 [ext_resource type="FontFile" uid="uid://04ovakb37cda" path="res://Retro Gaming.ttf" id="3_l2f1a"]
+[ext_resource type="PackedScene" uid="uid://chu4ynnkbhtl1" path="res://chatter.tscn" id="4_a6erj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w60ia"]
 font = ExtResource("3_l2f1a")
@@ -44,3 +45,5 @@ offset_top = 506.0
 offset_right = 1137.0
 offset_bottom = 638.0
 label_settings = SubResource("LabelSettings_w60ia")
+
+[node name="Chatter" parent="." instance=ExtResource("4_a6erj")]
